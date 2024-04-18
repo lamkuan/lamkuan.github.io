@@ -57,10 +57,32 @@
 
 
   
+  
+  <div class="site-header-image">
+    <img id="originBg" width="100%" alt="Hike News" src="">
+  </div>
+
+  <div id="header-blur" class="site-header-image blur" style="position: absolute; top:0; height: 207px; min-height: 207px; min-width: 100%;">
+    <img id="blurBg" width="100%" style="top: 96%" alt="Hike News" src="">
+  </div>
+
+  <script>
+        var imgUrls = "css/images/pose01.jpg,https://source.unsplash.com/collection/954550/1920x1080,https://source.unsplash.com/collection/954550/1920x1081".split(",");
+        var random = Math.floor((Math.random() * imgUrls.length ));
+        if (imgUrls[random].startsWith('http') || imgUrls[random].indexOf('://') >= 0) {
+          document.getElementById("originBg").src=imgUrls[random];
+          document.getElementById("blurBg").src=imgUrls[random];
+        } else {
+          document.getElementById("originBg").src='/' + imgUrls[random];
+          document.getElementById("blurBg").src='/' + imgUrls[random];
+        }
+    </script>
+
+
 
 
 <header id="allheader" class="site-header" role="banner" 
-   >
+   style="width: 100%; position: absolute; top:0; background: rgba(255,255,255,.8);"  >
   <div class="clearfix container">
       <div class="site-branding">
 
@@ -135,7 +157,7 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/2024/04/18/%E5%8F%A4%E5%B8%8C%E8%87%98%E6%87%B7%E7%96%91%E8%AB%96%E4%BB%8B%E7%B4%B9/GreekSkepticism.png" alt="GreekSkepticism"></p>
+        <p><img src="/2024/04/18/%E5%8F%A4%E5%B8%8C%E8%87%98%E6%87%B7%E7%96%91%E8%AB%96%E4%BB%8B%E7%B4%B9/%E5%8F%A4%E5%B8%8C%E8%87%98%E6%87%B7%E7%96%91%E8%AB%96%E4%BB%8B%E7%B4%B9/GreekSkepticism.png" alt="GreekSkepticism"></p>
 <h2 id="&#x61F7;&#x7591;&#x8AD6;&#x7684;&#x8D77;&#x6E90;"><a href="#&#x61F7;&#x7591;&#x8AD6;&#x7684;&#x8D77;&#x6E90;" class="headerlink" title="&#x61F7;&#x7591;&#x8AD6;&#x7684;&#x8D77;&#x6E90;"></a>&#x61F7;&#x7591;&#x8AD6;&#x7684;&#x8D77;&#x6E90;</h2><h2 id="&#x65E9;&#x671F;&#x76AE;&#x6D6A;&#x4E3B;&#x7FA9;"><a href="#&#x65E9;&#x671F;&#x76AE;&#x6D6A;&#x4E3B;&#x7FA9;" class="headerlink" title="&#x65E9;&#x671F;&#x76AE;&#x6D6A;&#x4E3B;&#x7FA9;"></a>&#x65E9;&#x671F;&#x76AE;&#x6D6A;&#x4E3B;&#x7FA9;</h2><h2 id="&#x5F8C;&#x671F;&#x76AE;&#x6D6A;&#x4E3B;&#x7FA9;"><a href="#&#x5F8C;&#x671F;&#x76AE;&#x6D6A;&#x4E3B;&#x7FA9;" class="headerlink" title="&#x5F8C;&#x671F;&#x76AE;&#x6D6A;&#x4E3B;&#x7FA9;"></a>&#x5F8C;&#x671F;&#x76AE;&#x6D6A;&#x4E3B;&#x7FA9;</h2><h2 id="&#x5B78;&#x9662;&#x6D3E;&#x61F7;&#x7591;&#x8AD6;"><a href="#&#x5B78;&#x9662;&#x6D3E;&#x61F7;&#x7591;&#x8AD6;" class="headerlink" title="&#x5B78;&#x9662;&#x6D3E;&#x61F7;&#x7591;&#x8AD6;"></a>&#x5B78;&#x9662;&#x6D3E;&#x61F7;&#x7591;&#x8AD6;</h2>
       
     </div>
@@ -353,6 +375,9 @@
 
 
     <!-- headerblur min height -->
+    
+      var headerblur = document.getElementById("header-blur");
+      headerblur.style.minHeight = window.getComputedStyle(document.getElementById("allheader"), null).height;
     
     
 </script>
